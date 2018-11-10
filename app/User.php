@@ -10,7 +10,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * App\User
  *
  * @property int $id
- * @property string $name
  * @property string $email
  * @property string|null $email_verified_at
  * @property string $password
