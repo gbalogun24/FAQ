@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 964faa671ba2077baf5c162ef9e01a8294c72740 gafar <gb262@njit.edu> 1541553426 -0500	branch: Created from HEAD
+964faa671ba2077baf5c162ef9e01a8294c72740 81f4f3cb899b5024e238babd0ccb3ee14f590e56 gafar <gb262@njit.edu> 1541892299 -0500	commit: Removed username from auth and updated user model
+81f4f3cb899b5024e238babd0ccb3ee14f590e56 449edd8eee44501afe1336351358441840857ccc gafar <gb262@njit.edu> 1541892475 -0500	commit: Updated user migration
+449edd8eee44501afe1336351358441840857ccc 251563a6ddb20bb6af08b7417ebeb79a395ca563 gafar <gb262@njit.edu> 1541896084 -0500	commit: Created Users seed
+251563a6ddb20bb6af08b7417ebeb79a395ca563 f196d0b800f03c2413d5701ea5619371f16d64fe gafar <gb262@njit.edu> 1541900809 -0500	commit: Created Profile factory and model
+f196d0b800f03c2413d5701ea5619371f16d64fe f5f4906419ee54416cb0fab087b1e2b180d8edec gafar <gb262@njit.edu> 1541900834 -0500	commit: Created Profile migration
+f5f4906419ee54416cb0fab087b1e2b180d8edec bc1005d98f42da2ef0b78beb79ab424b7dfa7dd1 gafar <gb262@njit.edu> 1541904092 -0500	commit: Created Profile unit test
+bc1005d98f42da2ef0b78beb79ab424b7dfa7dd1 7faa791502cf5eaf23986b4480c52114133dee3e gafar <gb262@njit.edu> 1541904429 -0500	commit: Created Profile Seed

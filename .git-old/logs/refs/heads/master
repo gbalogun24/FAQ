@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 8ed34eeda4e339c1c766829e9704a0266fd20561 gafar <gb262@njit.edu> 1541548113 -0500	clone: from https://github.com/gbalogun24/FAQ.git
+8ed34eeda4e339c1c766829e9704a0266fd20561 caf43d57447fbde9f653a0f03557f3db3e35d628 gafar <gb262@njit.edu> 1541548760 -0500	commit: Created Laravel application
+caf43d57447fbde9f653a0f03557f3db3e35d628 964faa671ba2077baf5c162ef9e01a8294c72740 gafar <gb262@njit.edu> 1541552295 -0500	commit: Created authentication and database
+964faa671ba2077baf5c162ef9e01a8294c72740 7faa791502cf5eaf23986b4480c52114133dee3e gafar <gb262@njit.edu> 1541914164 -0500	merge userProfile: Fast-forward
