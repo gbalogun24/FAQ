@@ -13,8 +13,16 @@ class AnswerTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testAnswers()
     {
-        $this->assertTrue(true);
+        $user = factory(\App\User::class)->make();
+        $user->save();
+        $question = factory(\App\Question::class)->make();
+        $question->user()->associate($user);
+        $this->assertTrue($question->save());
+        $answer = factory(\App\Answer::class)->make();
+        $answer->user()->associate($user);
+        $answer->question()->associate($question);
+        $this->assertTrue($answer->save());
     }
 }
