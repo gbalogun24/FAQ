@@ -31,7 +31,7 @@
                                 <div class="card-body">{{$answer->body}}</div>
                                 <div class="card-footer">
                                     <a class="btn btn-primary float-right"
-                                       href="#">
+                                       href="{{ route('answer.show', ['question_id'=> $question->id,'answer_id' => $answer->id]) }}">
                                         View
                                     </a>
                                 </div>
