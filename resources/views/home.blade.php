@@ -9,9 +9,7 @@
                         <a class="btn btn-primary float-right" href="#">
                             Create a question
                         </a>
-
                         <div class="card-body">
-
                             <div class="card-deck">
                                 @forelse($questions as $question)
                                     <div class="col-sm-4 d-flex align-items-stretch">
@@ -37,7 +35,7 @@
                                         </div>
                                     </div>
                                 @empty
-                                    There are not questions to view,you can create a new question
+                                    There are no questions available, please create a question below.
                                 @endforelse
 
                             </div>
