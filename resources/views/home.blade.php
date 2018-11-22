@@ -6,10 +6,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Questions
-                        <a class="btn btn-primary float-right" href="#">
-                            Create a question
-                        </a>
                         <div class="card-body">
+                            <a class="btn btn-primary float-right" href="{{route('question.create')}}">
+                                Create a question
+                            </a>
                             <div class="card-deck">
                                 @forelse($questions as $question)
                                     <div class="col-sm-4 d-flex align-items-stretch">
@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                 @empty
-                                    There are no questions available, please create a question below.
+                                    There are no questions available, please create a question.
                                 @endforelse
 
                             </div>
