@@ -10,9 +10,10 @@
                         <p>{{{$message}}}</p>
                     </div>
                     <div class="card-footer">
+                        <a class="btn btn-success float-right" href="{{ route('profile.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">
+                            Profile
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+
     }
     public function confirmation()
     {
@@ -78,11 +79,13 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user, $profile)
     {
-        //
+        $user = User::find($user);
+        $profile = $user->profile;
+        $edit = TRUE;
+        return view('profileForm', ['profile' => $profile, 'edit' => $edit ]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -90,17 +93,22 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user, $profile)
     {
-        //
+        $input = $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+        ], [
+            'fname.required' => ' First is required',
+            'lname.required' => ' Last is required',
+        ]);
+        $profile = Profile::find($profile);
+        $profile->fname = $request->fname;
+        $profile->lname = $request->lname;
+        $profile->body = $request->body;
+        $profile->save();
+        return redirect()->route('home')->with('message', 'Profile Updated!');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

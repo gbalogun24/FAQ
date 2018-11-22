@@ -5,12 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Create Profile</div>
-                    <div class="card-body">
                         @if($edit === FALSE)
+                        <div class="card-header">Create Profile</div>
+                        <div class="card-body">
                             {!! Form::model($profile, ['route' => ['profile.store', Auth::user()->id], 'method' => 'post']) !!}
                         @else()
-                            {{--{!! Form::model($profile, ['route' => ['profile.update', Auth::user()->id, $profile->id], 'method' => 'patch']) !!}--}}
+                                <div class="card-header">Update Profile</div>
+                                <div class="card-body">
+                            {!! Form::model($profile, ['route' => ['profile.update', Auth::user()->id, $profile->id], 'method' => 'patch']) !!}
                         @endif
                         <div class="form-group">
                             {!! Form::label('fname', 'First Name') !!}
@@ -28,7 +30,7 @@
                         </button>
                         {!! Form::close() !!}
                     </div>
-
+                        </div>
                 </div>
             </div>
         </div>
