@@ -5,13 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Create Answer</div>
-                    <div class="card-body">
                         @if($edit === FALSE)
+                        <div class="card-header">Create Answer</div>
+                        <div class="card-body">
                             {!! Form::model($answer, ['route' => ['answer.store', $question], 'method' => 'post']) !!}
 
                         @else()
-                            {{--{!! Form::model($answer, ['route' => ['answer.update', $question, $answer], 'method' => 'patch']) !!}--}}
+                                <div class="card-header">Update Answer</div>
+                                <div class="card-body">
+                                {!! Form::model($answer, ['route' => ['answer.update', $question, $answer], 'method' => 'patch']) !!}
                         @endif
                         <div class="form-group">
                             {!! Form::label('body', 'Body') !!}
@@ -21,7 +23,7 @@
                         </button>
                         {!! Form::close() !!}
                     </div>
-
+                        </div>
                 </div>
             </div>
         </div>
