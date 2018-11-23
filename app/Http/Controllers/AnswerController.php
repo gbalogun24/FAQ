@@ -43,10 +43,10 @@ class AnswerController extends Controller
     public function store(Request $request, $question)
     {
         $input = $request->validate([
-            'body' => 'required|min:5',
+            'body' => 'required|min:1',
         ], [
             'body.required' => 'Body is required',
-            'body.min' => 'Body must be at least 5 characters',
+            'body.min' => 'Body must be at least 1 character',
         ]);
         $input = request()->all();
         $question = Question::find($question);
