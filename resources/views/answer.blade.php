@@ -14,6 +14,10 @@
                            href="{{route('answer.edit',['question_id'=> $question, 'answer_id'=> $answer->id])}}">
                             Edit
                         </a>
+                        {{ Form::open(['method' => 'DELETE'])}}
+                        <button class="btn btn-danger float-right mr-2" value="sumit" id="sumit">Delete
+                        </button>
+                        {!! Form::close() !!}
                     </div>
                 </div>
 
