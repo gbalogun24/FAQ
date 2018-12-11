@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Laravel\Socialite\Facades\Socialite;
 
 class RegisterController extends Controller
 {
@@ -50,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
 
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users',''],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -73,4 +75,28 @@ class RegisterController extends Controller
     {
         return view('googleRegister');
     }
-}
+
+    public function redirect()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+
+    public function callback()
+    {
+        $googleUser = Socialite::driver('google')->user();
+        //dd($googleUser);
+        $existUser = User::where('email', $googleUser->email)->first();
+        if ($existUser) {
+            return redirect()->route('googleRegister')->with('error', 'This user already exists');
+        } else {
+            $user = new User;
+            $user->email = $googleUser->email;
+            $user->google_id = $googleUser->id;
+            $user->password = md5(rand(1, 10000));
+            $user->save();
+        }
+        return redirect()->route('home');
+        }
+    }
+
