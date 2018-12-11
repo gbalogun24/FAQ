@@ -88,13 +88,15 @@ class RegisterController extends Controller
         //dd($googleUser);
         $existUser = User::where('email', $googleUser->email)->first();
         if ($existUser) {
-            return redirect()->route('home')->with('message', 'Account Created!');
+            Auth::loginUsingId($existUser->id);
+            return redirect()->route('home');
         } else {
             $user = new User;
             $user->email = $googleUser->email;
             $user->google_id = $googleUser->id;
             $user->avatar = $googleUser->avatar;
             $user->password = md5(rand(1, 10000));
+            $user->remember_token = str_random(10);
             $user->save();
             Auth::loginUsingId($user->id);
         }

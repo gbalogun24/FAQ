@@ -36,4 +36,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    protected function googleLogin()
+    {
+        return view('googleLogin');
+    }
 }

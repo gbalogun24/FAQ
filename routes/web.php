@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/googleRegister', 'Auth\RegisterController@googleRegister')->name('google_register');
+Route::get('/googleLogin', 'Auth\LoginController@googleLogin')->name('google_login');
 Route::post('/redirect', 'Auth\RegisterController@redirect')->name('redirect');
 Route::get('/callback', 'Auth\RegisterController@callback')->name('callback');
 Route::get('/profileConfirmation', 'ProfileController@confirmation')->name('profileConfirmation');

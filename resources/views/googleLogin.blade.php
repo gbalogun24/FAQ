@@ -6,9 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
-
+                <h4 align="center">Enter Your Google Email and Password</h4>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('redirect') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -56,9 +56,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                <div class="btn-group">
-                                    <a class='btn btn-danger' href='{{ route('google_login') }}' style="width:12em;"> Login in with Google</a>
-                                </div>
+
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
