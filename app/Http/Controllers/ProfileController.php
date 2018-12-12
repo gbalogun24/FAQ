@@ -70,7 +70,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $profile = $user->profile;
-        return view('profile')->with('profile',$profile);
+        return view('profile')->with(['profile' => $profile, 'user' => $user]);
     }
 
     /**
