@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/allQuestions', 'QuestionController@allQuestions')->name('allQuestions');
 Route::get('/googleRegister', 'Auth\RegisterController@googleRegister')->name('google_register');
 Route::get('/googleLogin', 'Auth\LoginController@googleLogin')->name('google_login');
 Route::post('/redirect', 'Auth\RegisterController@redirect')->name('redirect');

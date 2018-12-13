@@ -38,6 +38,9 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Home
                 </a>
+                <a class="navbar-brand" href="{{ route('allQuestions') }}">
+                    All Questions
+                </a>
             @endguest
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

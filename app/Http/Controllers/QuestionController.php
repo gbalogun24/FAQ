@@ -62,10 +62,12 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
+        //dd($question);
         $userID = Question::where('user_id', $question->user_id)->first();
-        $user = User::find($userID->first());
+        $user = User::find($userID);
+        //dd($user);
         for ($i = 0; $i < count($user);$i++){
-            $questionUser = $user[0];
+            $questionUser = $user[$i];
             //dd($questionUser);
         }
         return view('question')->with(['question' => $question, 'user' => $questionUser]);
@@ -105,5 +107,9 @@ class QuestionController extends Controller
     {
         $question->delete();
         return redirect()->route('home')->with('message', 'Question Deleted!');
+    }
+    public function allQuestions(){
+        $allQuestions = Question::all();
+        return view('allQuestions')->with('allQuestions', $allQuestions);
     }
 }
