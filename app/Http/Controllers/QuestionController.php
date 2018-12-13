@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\User;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,13 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        return view('question')->with('question', $question);
+        $userID = Question::where('user_id', $question->user_id)->first();
+        $user = User::find($userID->first());
+        for ($i = 0; $i < count($user);$i++){
+            $questionUser = $user[0];
+            //dd($questionUser);
+        }
+        return view('question')->with(['question' => $question, 'user' => $questionUser]);
     }
     /**
      * Show the form for editing the specified resource.
