@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Profile;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -86,6 +87,8 @@ class RegisterController extends Controller
     {
         $googleUser = Socialite::driver('google')->user();
         //dd($googleUser);
+        $name = explode(" ", $googleUser->name);
+        //dd($name);
         $existUser = User::where('email', $googleUser->email)->first();
         if ($existUser) {
             Auth::loginUsingId($existUser->id);
@@ -98,6 +101,12 @@ class RegisterController extends Controller
             $user->password = md5(rand(1, 10000));
             $user->remember_token = str_random(10);
             $user->save();
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+            $profile->fname = $name[0];
+            $profile->lname = $name[1];
+            $profile->body = "";
+            $profile->save();
             Auth::loginUsingId($user->id);
         }
         return redirect()->route('home');
