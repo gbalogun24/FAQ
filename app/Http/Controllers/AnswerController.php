@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Question;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,7 +68,14 @@ class AnswerController extends Controller
     public function show($question, $answer)
     {
         $answer = Answer::find($answer);
-        return view('answer')->with(['answer'=> $answer, 'question'=>$question]);
+        $userID = Answer::where('user_id', $answer->user_id)->first();
+        $user = User::find($userID);
+        for ($i = 0; $i < count($user);$i++){
+            $answerUser = $user[$i];
+            //dd($answerUser);
+        }
+        //dd($user);
+        return view('answer')->with(['answer'=> $answer, 'question'=>$question, 'answerUser'=>$answerUser]);
     }
 
     /**

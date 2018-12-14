@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Answer</div>
+                    <div class="card-header">Answer <img src="{{$answerUser->avatar}}" align="right"></div>
                     <div class="card-body">
                         {{$answer->body}}
                     </div>
