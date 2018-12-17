@@ -68,13 +68,9 @@ class AnswerController extends Controller
     public function show($question, $answer)
     {
         $answer = Answer::find($answer);
-        $userID = Answer::where('user_id', $answer->user_id)->first();
-        $user = User::find($userID);
-        for ($i = 0; $i < count($user);$i++){
-            $answerUser = $user[$i];
-            //dd($answerUser);
-        }
-        //dd($user);
+        $userID = $answer->user_id;
+        $answerUser = User::find($userID);
+        //dd($answerUser);
         return view('answer')->with(['answer'=> $answer, 'question'=>$question, 'answerUser'=>$answerUser]);
     }
 
