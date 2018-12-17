@@ -4,6 +4,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 class QuestionController extends Controller
 {
@@ -63,13 +64,10 @@ class QuestionController extends Controller
     public function show(Question $question)
     {
         //dd($question);
-        $userID = Question::where('user_id', $question->user_id)->first();
-        $user = User::find($userID);
-        //dd($user);
-        for ($i = 0; $i < count($user);$i++){
-            $questionUser = $user[$i];
-            //dd($questionUser);
-        }
+        $userID = $question->user_id;
+        //dd($userID);
+        $questionUser = DB::table('users')->where('id',$userID)->first();
+        //dd($questionUser);
         return view('question')->with(['question' => $question, 'user' => $questionUser]);
     }
     /**
