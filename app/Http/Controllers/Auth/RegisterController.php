@@ -79,7 +79,10 @@ class RegisterController extends Controller
 
     public function redirect()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')
+            ->with(["access_type" => "offline", "prompt" => "consent select_account"])
+            ->redirect();
+
     }
 
 

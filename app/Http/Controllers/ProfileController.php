@@ -6,6 +6,7 @@ use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -84,7 +85,7 @@ class ProfileController extends Controller
         $user = User::find($user);
         $profile = $user->profile;
         $edit = TRUE;
-        return view('profileForm', ['profile' => $profile, 'edit' => $edit ]);
+        return view('profileForm', ['profile' => $profile, 'edit' => $edit, 'user'=>$user ]);
     }
     /**
      * Update the specified resource in storage.
@@ -103,10 +104,12 @@ class ProfileController extends Controller
             'lname.required' => ' Last is required',
         ]);
         $profile = Profile::find($profile);
+        $user = User::find($user);
         $profile->fname = $request->fname;
         $profile->lname = $request->lname;
         $profile->body = $request->body;
         $profile->save();
+        $user->save();
         return redirect()->route('home')->with('message', 'Profile Updated!');
     }
     public function destroy($id)
