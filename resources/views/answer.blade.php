@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @if (Auth::user()->id == $answer->user_id)
                 <div class="card">
                     <div class="card-header">Answer <img src="{{$answerUser->avatar}}" align="right"></div>
                     <div class="card-body">
@@ -20,8 +21,17 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
-
+                @else
+                    <div class="card">
+                        <div class="card-header">Answer <img src="{{$answerUser->avatar}}" align="right"></div>
+                        <div class="card-body">
+                            {{$answer->body}}
+                        </div>
+                        <div class="card-footer">
+                        </div>
+                    </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection
